@@ -31,8 +31,13 @@ metadata:
   namespace: default
 spec:
   ports:
-    - port: 8080
-      protocol: TCP
+    - protocol: TCP
+      name: http
+      port: 80
+      targetPort: 8080
+    - protocol: TCP
+      name: https
+      port: 443
       targetPort: 8080
   selector:
     app: backend
@@ -72,10 +77,9 @@ metadata:
   namespace: default
 spec:
   ports:
-    - nodePort: 31200
-      port: 8000
+    - port: 8000
       protocol: TCP
       targetPort: 8000
   selector:
     app: fastapi-ai
-  type: NodePort
+  type: ClusterIP
