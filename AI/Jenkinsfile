@@ -31,7 +31,7 @@ pipeline {
                     sh 'git config user.email hnnynh125@gmail.com'
                     sh "git config user.name ${env.USERNAME}"
                     sh 'git add .'
-                    sh "git commit -m 'update: BE Image Update ${env.IMAGE_TAG}'"
+                    sh "git commit -m 'update: AI Image Update ${env.IMAGE_TAG}'"
                     sh 'git push https://$GITHUB_CREDENTIAL@github.com/lunch-12/PAPERPLE-CD.git HEAD:main'
                 }
             }
@@ -43,14 +43,14 @@ pipeline {
             slackSend (
                 channel: '#클라우드', 
                 color: '#00FF00', 
-                message: "CD Trigger SUCCESS: BE CD Trigger Job ${env.JOB_NAME} [${env.IMAGE_TAG}]"
+                message: "CD Trigger SUCCESS: AI CD Trigger Job ${env.JOB_NAME} [${env.IMAGE_TAG}]"
             )
         }
         failure {
             slackSend (
                 channel: '#클라우드', 
                 color: '#FF0000', 
-                message: "CD Trigger FAIL: BE CD Trigger Job ${env.JOB_NAME} [${env.IMAGE_TAG}]"
+                message: "CD Trigger FAIL: AI CD Trigger Job ${env.JOB_NAME} [${env.IMAGE_TAG}]"
             )
         }
     }
