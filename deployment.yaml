@@ -6,7 +6,7 @@ metadata:
   labels:
     app: backend
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: backend
@@ -17,6 +17,12 @@ spec:
     spec:
       containers:
         - name: backend
+          resources:
+            requests:
+              cpu: 2m
+              memory: 250Mi
+            limits:
+              cpu: 200m
           image: hnnynh/paperple-spring:v0.0.42
           ports:
             - containerPort: 8080
@@ -52,7 +58,7 @@ metadata:
   labels:
     app: fastapi-ai
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: fastapi-ai
@@ -64,6 +70,12 @@ spec:
       containers:
         - name: fastapi-ai
           image: hnnynh/paperple-ai:v0.0.11
+          resources:
+            requests:
+              cpu: 2m
+              memory: 50Mi
+            limits:
+              cpu: 200m
           ports:
             - containerPort: 8080
 
