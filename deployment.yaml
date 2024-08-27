@@ -19,13 +19,34 @@ spec:
         - name: backend
           resources:
             requests:
-              cpu: 2m
+              cpu: 200m
               memory: 250Mi
             limits:
-              cpu: 200m
+              cpu: 500m
           image: hnnynh/paperple-spring:v0.0.42
           ports:
             - containerPort: 8080
+
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: backend
+  namespace: default
+spec:
+  maxReplicas: 6
+  metrics:
+    - resource:
+        name: cpu
+        target:
+          averageUtilization: 50
+          type: Utilization
+      type: Resource
+  minReplicas: 2
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: backend
 
 ---
 apiVersion: v1
@@ -72,10 +93,10 @@ spec:
           image: hnnynh/paperple-ai:v0.0.11
           resources:
             requests:
-              cpu: 2m
+              cpu: 200m
               memory: 50Mi
             limits:
-              cpu: 200m
+              cpu: 500m
           ports:
             - containerPort: 8080
 
