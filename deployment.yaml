@@ -34,7 +34,7 @@ metadata:
   name: backend
   namespace: default
 spec:
-  maxReplicas: 6
+  maxReplicas: 10
   metrics:
     - resource:
         name: cpu
@@ -93,12 +93,14 @@ spec:
           image: hnnynh/paperple-ai:v0.0.32
           resources:
             requests:
-              cpu: 200m
+              cpu: 50m
               memory: 50Mi
             limits:
-              cpu: 500m
+              cpu: 300m
           ports:
             - containerPort: 8080
+      imagePullSecrets:
+        - name: docker-secret
 
 ---
 apiVersion: autoscaling/v2
@@ -107,7 +109,7 @@ metadata:
   name: fastapi-ai
   namespace: default
 spec:
-  maxReplicas: 6
+  maxReplicas: 10
   metrics:
     - resource:
         name: cpu
@@ -137,4 +139,3 @@ spec:
   selector:
     app: fastapi-ai
   type: ClusterIP
-  
