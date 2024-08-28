@@ -34,7 +34,7 @@ metadata:
   name: backend
   namespace: default
 spec:
-  maxReplicas: 4
+  maxReplicas: 6
   metrics:
     - resource:
         name: cpu
@@ -109,7 +109,7 @@ metadata:
   name: fastapi-ai
   namespace: default
 spec:
-  maxReplicas: 4
+  maxReplicas: 8
   metrics:
     - resource:
         name: cpu
