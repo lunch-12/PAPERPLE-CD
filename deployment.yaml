@@ -90,7 +90,7 @@ spec:
     spec:
       containers:
         - name: fastapi-ai
-          image: hnnynh/paperple-ai:v0.0.32
+          image: hnnynh/paperple-ai:v0.0.2
           resources:
             requests:
               cpu: 50m
