@@ -23,7 +23,7 @@ spec:
               memory: 250Mi
             limits:
               cpu: 500m
-          image: 024848437933.dkr.ecr.ap-northeast-2.amazonaws.com/paperple-spring:v0.0.41
+          image: 024848437933.dkr.ecr.ap-northeast-2.amazonaws.com/paperple-spring:v0.0.47
           ports:
             - containerPort: 8080
       imagePullSecrets:
