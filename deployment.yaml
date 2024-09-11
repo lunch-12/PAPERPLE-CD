@@ -95,10 +95,10 @@ spec:
           image: 024848437933.dkr.ecr.ap-northeast-2.amazonaws.com/paperple-ai:v0.0.28
           resources:
             requests:
-              cpu: 50m
-              memory: 50Mi
+              cpu: 200m
+              memory: 100Mi
             limits:
-              cpu: 300m
+              cpu: 500m
           ports:
             - containerPort: 8080
       imagePullSecrets:
@@ -111,7 +111,7 @@ metadata:
   name: fastapi-ai
   namespace: default
 spec:
-  maxReplicas: 6
+  maxReplicas: 4
   metrics:
     - resource:
         name: cpu
