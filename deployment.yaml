@@ -92,7 +92,7 @@ spec:
     spec:
       containers:
         - name: fastapi-ai
-          image: 024848437933.dkr.ecr.ap-northeast-2.amazonaws.com/paperple-ai:v0.0.27
+          image: 024848437933.dkr.ecr.ap-northeast-2.amazonaws.com/paperple-ai:v0.0.28
           resources:
             requests:
               cpu: 50m
