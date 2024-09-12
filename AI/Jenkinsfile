@@ -8,7 +8,7 @@ pipeline {
         REPO = 'lunch-12/PAPERPLE-CD'
         IMAGE_NAME = 'paperple-ai'
         USERNAME = 'hnnynh'
-        GITHUB_ID = 'github_webhook'
+        GITHUB_ID = 'github-token'
     }
     
     stages {
