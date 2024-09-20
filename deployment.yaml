@@ -150,4 +150,4 @@ spec:
       targetPort: 8000
   selector:
     app: fastapi-ai
-  type: LoadBalancer
+  type: ClusterIP
